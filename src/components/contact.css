@@ -1,0 +1,82 @@
+.contact {
+  position: relative;
+  padding: var(--space-6) 0 var(--space-4);
+  overflow: hidden;
+}
+
+/* A rising warm glow to close the page */
+.contact::before {
+  content: '';
+  position: absolute;
+  inset: auto -20% -40%;
+  height: 90%;
+  background: radial-gradient(ellipse 60% 55% at 50% 100%, rgba(255, 122, 84, 0.12), transparent 70%);
+  pointer-events: none;
+}
+
+.contact__inner {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.contact__heading {
+  font-size: var(--step-3);
+  font-weight: 600;
+  margin-top: var(--space-1);
+  max-width: 24ch;
+  text-wrap: balance;
+}
+
+.contact__sub {
+  margin-top: var(--space-2);
+  max-width: 44ch;
+  color: var(--text-2);
+  font-size: var(--step-1);
+  line-height: 1.6;
+}
+
+.contact__actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-top: var(--space-4);
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.contact__links {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.contact__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  border-radius: var(--radius-s);
+  color: var(--text-2);
+  border: 1px solid var(--edge-strong);
+  background: var(--bg-1);
+  box-shadow: var(--shadow-1), var(--top-light);
+  transition:
+    color 0.2s var(--ease-out),
+    transform 0.2s var(--ease-out),
+    border-color 0.2s var(--ease-out);
+}
+
+.contact__icon:hover {
+  color: var(--text-1);
+  transform: translateY(-2px);
+  border-color: var(--edge-lit);
+}
+
+.contact__fine {
+  margin-top: var(--space-5);
+  text-transform: none;
+  letter-spacing: 0.04em;
+}

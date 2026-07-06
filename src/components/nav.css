@@ -1,0 +1,178 @@
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--nav-bg);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--edge);
+}
+
+.nav__progress {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 2px;
+  background: var(--accent-grad);
+  transform: scaleX(0);
+  transform-origin: left;
+}
+
+.nav__inner {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  height: 64px;
+}
+
+.nav__brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-mono);
+  font-weight: 500;
+  font-size: 1.05rem;
+  letter-spacing: 0.02em;
+}
+
+.nav__brand-mark {
+  width: 10px;
+  height: 10px;
+  border-radius: 3px;
+  background: var(--accent-grad);
+  box-shadow: 0 0 12px rgba(255, 138, 94, 0.5);
+}
+
+.nav__links {
+  display: flex;
+  gap: var(--space-3);
+  margin-left: var(--space-2);
+}
+
+.nav__link {
+  font-size: 0.92rem;
+  font-weight: 500;
+  color: var(--text-2);
+  transition: color 0.2s var(--ease-out);
+}
+
+.nav__link:hover {
+  color: var(--text-1);
+}
+
+.nav__actions {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.nav__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: var(--radius-s);
+  color: var(--text-2);
+  transition:
+    color 0.2s var(--ease-out),
+    background-color 0.2s var(--ease-out),
+    transform 0.2s var(--ease-out);
+}
+
+.nav__icon:hover {
+  color: var(--text-1);
+  background: var(--bg-2);
+  transform: translateY(-1px);
+}
+
+.nav__burger {
+  display: none;
+  position: relative;
+  width: 38px;
+  height: 38px;
+  border-radius: var(--radius-s);
+}
+
+.nav__burger-bar {
+  position: absolute;
+  left: 9px;
+  width: 20px;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--text-1);
+  transition: transform 0.3s var(--ease-swift), top 0.3s var(--ease-swift);
+}
+
+.nav__burger-bar:nth-child(1) {
+  top: 15px;
+}
+
+.nav__burger-bar:nth-child(2) {
+  top: 22px;
+}
+
+.nav__burger-bar.is-x1 {
+  top: 18px;
+  transform: rotate(45deg);
+}
+
+.nav__burger-bar.is-x2 {
+  top: 18px;
+  transform: rotate(-45deg);
+}
+
+@media (max-width: 767px) {
+  .nav__links {
+    position: absolute;
+    top: 64px;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    gap: 0;
+    margin: 0;
+    padding: var(--space-1) 1.25rem var(--space-2);
+    background: var(--nav-bg);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--edge);
+    display: none;
+  }
+
+  .nav__links.is-open {
+    display: flex;
+  }
+
+  .nav__link {
+    padding: 0.8rem 0;
+    font-size: 1.05rem;
+    border-bottom: 1px solid var(--edge);
+  }
+
+  .nav__link:last-child {
+    border-bottom: none;
+  }
+
+  .nav__burger {
+    display: block;
+  }
+
+  /* Keep icons clear of the menu button: only theme and burger stay
+     in the bar, profile icons move into more generous spacing */
+  .nav__actions {
+    gap: 0.15rem;
+  }
+
+  .nav__icon {
+    width: 36px;
+    height: 36px;
+  }
+}
+
+@media (max-width: 420px) {
+  .nav__actions .nav__icon[title='Resume'] {
+    display: none;
+  }
+}

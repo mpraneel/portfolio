@@ -1,0 +1,205 @@
+.hero {
+  position: relative;
+  overflow: hidden;
+  min-height: calc(100svh - 64px);
+  display: flex;
+  align-items: center;
+}
+
+/* A quiet warm wash so the dark feels deep, not flat */
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: -20% -10% auto;
+  height: 100%;
+  background:
+    radial-gradient(ellipse 55% 45% at 72% 35%, rgba(255, 138, 94, 0.1), transparent 70%),
+    radial-gradient(ellipse 40% 35% at 20% 15%, rgba(255, 179, 92, 0.05), transparent 70%);
+  pointer-events: none;
+}
+
+.hero__bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  cursor: grab;
+  touch-action: pan-y;
+}
+
+.hero__bg.is-grabbing {
+  cursor: grabbing;
+}
+
+/* No accidental text selection mid-orbit */
+.hero {
+  user-select: none;
+}
+
+.hero__copy {
+  user-select: text;
+}
+
+.hero__inner {
+  position: relative;
+  width: 100%;
+  padding: var(--space-5) 0;
+  pointer-events: none;
+}
+
+/* Re-enable interaction on the actual content */
+.hero__copy a,
+.hero__copy button {
+  pointer-events: auto;
+}
+
+.hero__copy {
+  max-width: 40rem;
+}
+
+.hero__headline {
+  font-size: var(--step-4);
+  font-weight: 700;
+  margin-top: var(--space-2);
+  text-wrap: balance;
+}
+
+/* The gradient name carries the page: soft warm glow plus a slow
+   shimmer as the gradient pans across the letters */
+.hero__headline.grad-text {
+  filter: drop-shadow(0 4px 28px rgba(255, 122, 84, 0.22));
+  background-size: 220% 100%;
+  animation: name-shimmer 7s var(--ease-swift) infinite alternate;
+}
+
+@keyframes name-shimmer {
+  from {
+    background-position: 0% 0;
+  }
+  to {
+    background-position: 100% 0;
+  }
+}
+
+.hero__tagline {
+  font-family: var(--font-display);
+  font-size: var(--step-2);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  color: var(--text-1);
+  margin-top: var(--space-3);
+}
+
+.hero__sub {
+  margin-top: var(--space-2);
+  max-width: 34rem;
+  font-size: var(--step-1);
+  line-height: 1.55;
+  color: var(--text-2);
+}
+
+.hero__cta {
+  display: flex;
+  gap: var(--space-2);
+  margin-top: var(--space-4);
+}
+
+.btn {
+  position: relative;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.8rem 1.5rem;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition:
+    transform 0.25s var(--ease-out),
+    box-shadow 0.25s var(--ease-out),
+    background-color 0.25s var(--ease-out);
+}
+
+/* A light sweep crosses the button on hover */
+.btn::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: -80%;
+  width: 55%;
+  background: linear-gradient(105deg, transparent, rgba(255, 255, 255, 0.32), transparent);
+  transform: skewX(-20deg);
+  transition: left 0.55s var(--ease-swift);
+  pointer-events: none;
+}
+
+.btn:hover::after {
+  left: 125%;
+}
+
+.btn--primary {
+  background: var(--accent-grad);
+  color: var(--accent-ink);
+  box-shadow:
+    0 4px 20px rgba(255, 122, 84, 0.35),
+    var(--top-light);
+}
+
+.btn--primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(255, 122, 84, 0.45);
+}
+
+.btn--ghost {
+  border: 1px solid var(--edge-strong);
+  color: var(--text-1);
+  background: var(--bg-1);
+  box-shadow: var(--shadow-1), var(--top-light);
+}
+
+.btn--ghost:hover {
+  transform: translateY(-2px);
+  border-color: var(--edge-lit);
+  box-shadow: var(--shadow-2);
+}
+
+.hero__stack {
+  margin-top: var(--space-4);
+}
+
+.hero__caption {
+  position: absolute;
+  right: 1.5rem;
+  bottom: 1.2rem;
+  margin: 0;
+  pointer-events: none;
+}
+
+.hero__caption::before {
+  content: '';
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  margin-right: 0.55rem;
+  border-radius: 50%;
+  background: var(--accent-solid);
+  box-shadow: 0 0 8px rgba(255, 161, 78, 0.6);
+}
+
+@media (max-width: 880px) {
+  .hero {
+    min-height: calc(100svh - 64px);
+    align-items: flex-start;
+  }
+
+  .hero__inner {
+    padding-top: var(--space-4);
+  }
+
+  .hero__caption {
+    right: auto;
+    left: 1.25rem;
+  }
+}

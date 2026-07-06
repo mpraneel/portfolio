@@ -1,0 +1,131 @@
+/*
+  Design tokens. Dark is the default theme.
+  Warm charcoal base, amber-to-coral accent, layered elevation.
+*/
+
+:root,
+:root[data-theme='dark'] {
+  /* Surfaces, deep with a warm undertone rather than flat gray */
+  --bg-0: #0f0b0d;
+  --bg-1: #171114;
+  --bg-2: #201820;
+  --bg-3: #2a1f28;
+
+  /* Text */
+  --text-1: #f4ede5;
+  --text-2: #b3a69e;
+  --text-3: #7d716b;
+
+  /* Accent: warm amber into coral */
+  --accent-1: #ffb35c;
+  --accent-2: #ff6b5e;
+  --accent-solid: #ffa14e;
+  --accent-ink: #1a0f08;
+  --accent-grad: linear-gradient(120deg, var(--accent-1), var(--accent-2));
+
+  /* Lines and edges */
+  --edge: rgba(244, 237, 229, 0.08);
+  --edge-strong: rgba(244, 237, 229, 0.14);
+  --edge-lit: rgba(255, 179, 92, 0.35);
+
+  /* Elevation: soft layered shadows plus a faint top light */
+  --shadow-1:
+    0 1px 2px rgba(0, 0, 0, 0.4),
+    0 4px 12px rgba(0, 0, 0, 0.35);
+  --shadow-2:
+    0 2px 4px rgba(0, 0, 0, 0.45),
+    0 12px 32px rgba(0, 0, 0, 0.45);
+  --shadow-3:
+    0 4px 8px rgba(0, 0, 0, 0.5),
+    0 24px 64px rgba(0, 0, 0, 0.55);
+  --top-light: inset 0 1px 0 rgba(255, 245, 235, 0.06);
+
+  /* Canvas colors for the hero animation */
+  --pt-ref: rgba(179, 166, 158, 0.5);
+  --pt-src: #ff8a5e;
+  --pt-locked: #ffc46b;
+  --pt-line: rgba(255, 138, 94, 0.28);
+  --pt-ambient: rgba(210, 195, 185, 0.55);
+  --pt-link: rgba(210, 195, 185, 0.16);
+  --pt-far: #ff5f70;
+
+  --nav-bg: rgba(15, 11, 13, 0.72);
+
+  color-scheme: dark;
+}
+
+:root[data-theme='light'] {
+  --bg-0: #faf5ee;
+  --bg-1: #ffffff;
+  --bg-2: #fdf9f3;
+  --bg-3: #f4ece1;
+
+  --text-1: #241b16;
+  --text-2: #6d5f55;
+  --text-3: #99897d;
+
+  --accent-1: #e8873a;
+  --accent-2: #e04f42;
+  --accent-solid: #d16a1e;
+  --accent-ink: #ffffff;
+  --accent-grad: linear-gradient(120deg, var(--accent-1), var(--accent-2));
+
+  --edge: rgba(36, 27, 22, 0.09);
+  --edge-strong: rgba(36, 27, 22, 0.16);
+  --edge-lit: rgba(209, 106, 30, 0.4);
+
+  --shadow-1:
+    0 1px 2px rgba(60, 40, 20, 0.08),
+    0 4px 12px rgba(60, 40, 20, 0.08);
+  --shadow-2:
+    0 2px 4px rgba(60, 40, 20, 0.08),
+    0 12px 32px rgba(60, 40, 20, 0.12);
+  --shadow-3:
+    0 4px 8px rgba(60, 40, 20, 0.1),
+    0 24px 64px rgba(60, 40, 20, 0.16);
+  --top-light: inset 0 1px 0 rgba(255, 255, 255, 0.9);
+
+  --pt-ref: rgba(109, 95, 85, 0.45);
+  --pt-src: #e05a35;
+  --pt-locked: #d16a1e;
+  --pt-line: rgba(224, 90, 53, 0.3);
+  --pt-ambient: rgba(90, 75, 65, 0.5);
+  --pt-link: rgba(90, 75, 65, 0.14);
+  --pt-far: #d43d52;
+
+  --nav-bg: rgba(250, 245, 238, 0.78);
+
+  color-scheme: light;
+}
+
+:root {
+  /* Type */
+  --font-display: 'Clash Display', 'Inter', system-ui, sans-serif;
+  --font-body: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, 'SF Mono', monospace;
+
+  /* Scale */
+  --step--1: clamp(0.8rem, 0.78rem + 0.1vw, 0.85rem);
+  --step-0: clamp(0.95rem, 0.9rem + 0.2vw, 1.05rem);
+  --step-1: clamp(1.15rem, 1.05rem + 0.4vw, 1.35rem);
+  --step-2: clamp(1.5rem, 1.3rem + 0.9vw, 2rem);
+  --step-3: clamp(2.1rem, 1.7rem + 1.8vw, 3.1rem);
+  --step-4: clamp(2.9rem, 2.1rem + 3.6vw, 5rem);
+
+  /* Rhythm */
+  --space-1: 0.5rem;
+  --space-2: 1rem;
+  --space-3: 1.5rem;
+  --space-4: 2.5rem;
+  --space-5: 4rem;
+  --space-6: 7rem;
+
+  --radius-s: 10px;
+  --radius-m: 16px;
+  --radius-l: 24px;
+
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-swift: cubic-bezier(0.65, 0, 0.35, 1);
+
+  --container: 1120px;
+}

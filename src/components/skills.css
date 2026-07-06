@@ -1,0 +1,74 @@
+.skills {
+  padding: var(--space-6) 0;
+}
+
+.skills__heading {
+  font-size: var(--step-3);
+  font-weight: 600;
+  margin-top: var(--space-1);
+}
+
+.skills__groups {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  margin-top: var(--space-4);
+}
+
+.skills__group {
+  padding: var(--space-3);
+  border-radius: var(--radius-m);
+  background: var(--bg-1);
+  border: 1px solid var(--edge);
+  box-shadow: var(--shadow-1), var(--top-light);
+}
+
+/* Languages and systems lead; backend stack stays quieter */
+.skills__group--primary {
+  border-color: var(--edge-strong);
+}
+
+.skills__group-name {
+  margin-bottom: var(--space-2);
+}
+
+.skills__list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin: 0;
+  padding: 0;
+}
+
+.skills__chip {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  padding: 0.45rem 0.9rem;
+  border-radius: 999px;
+  border: 1px solid var(--edge-strong);
+  background: var(--bg-2);
+  color: var(--text-2);
+  transition:
+    color 0.2s var(--ease-out),
+    border-color 0.2s var(--ease-out),
+    transform 0.2s var(--ease-out);
+}
+
+.skills__chip:hover {
+  transform: translateY(-2px);
+  color: var(--text-1);
+  border-color: var(--edge-lit);
+}
+
+.skills__chip--primary {
+  font-size: 0.95rem;
+  padding: 0.55rem 1.1rem;
+  color: var(--text-1);
+  border-color: rgba(255, 161, 78, 0.3);
+  background: linear-gradient(180deg, var(--bg-3), var(--bg-2));
+}
+
+:root[data-theme='light'] .skills__chip--primary {
+  border-color: rgba(209, 106, 30, 0.35);
+}

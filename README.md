@@ -34,4 +34,4 @@ src/
 
 ## Current state
 
-All sections built: hero with ICP rocket animation, About, Projects, Experience timeline, Skills, and Contact. Awaiting final review before deploy.
+All sections built: hero with ICP icosahedron animation, About, Projects, Experience timeline, Skills, and Contact. 

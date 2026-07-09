@@ -14,8 +14,8 @@ const ROLES: Role[] = [
     title: 'Software Engineering Intern, R&D',
     dates: 'May 2026 to Aug 2026',
     points: [
-      '3D computational geometry and mesh processing at an S&P 500 med-tech company.',
-      'Shipped production R&D software.',
+      'Redesigned support-structure generation in a large C++ 3D-printing pipeline, replacing a manual finishing step and improving part quality.',
+      'Engineered support geometry and implemented pixel-level processing to optimize how supports separate from the final part.',
     ],
   },
   {

@@ -9,11 +9,10 @@ export default function Contact() {
       <div className="container contact__inner">
         <p className="mono-label reveal">05 &middot; Contact</p>
         <h2 className="contact__heading reveal reveal--zoom" style={{ '--reveal-delay': '0.1s' } as React.CSSProperties}>
-          Let&apos;s build something <span className="grad-text">that holds up.</span>
+          Get in <span className="grad-text">touch.</span>
         </h2>
         <p className="contact__sub reveal" style={{ '--reveal-delay': '0.2s' } as React.CSSProperties}>
-          If you are hiring for systems work, or want to talk about anything on this page,
-          email is the fastest way to reach me.
+          If you're hiring, or want to talk about anything on this page, email is the fastest way to reach me.
         </p>
 
         <div className="contact__actions reveal" style={{ '--reveal-delay': '0.3s' } as React.CSSProperties}>

@@ -29,12 +29,7 @@ export default function Hero() {
             Magapu
           </h1>
           <p className="hero__tagline reveal" style={{ '--reveal-delay': '0.24s' } as React.CSSProperties}>
-            Aspiring software engineer focused on solving real-world problems
-            and continuous learning.
-          </p>
-          <p className="hero__sub reveal" style={{ '--reveal-delay': '0.32s' } as React.CSSProperties}>
-            Currently doing mesh processing R&amp;D at Align Technology.
-            CS at NC State, graduating May 2027.
+            Building software across systems and intelligence.
           </p>
           <div className="hero__cta reveal" style={{ '--reveal-delay': '0.4s' } as React.CSSProperties}>
             <a className="btn btn--primary" href="#projects">

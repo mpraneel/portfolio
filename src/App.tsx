@@ -1,4 +1,3 @@
-import Ambience from './components/Ambience'
 import Nav from './components/Nav'
 import Hero from './components/Hero'
 import About from './components/About'
@@ -10,7 +9,6 @@ import Contact from './components/Contact'
 export default function App() {
   return (
     <>
-      <Ambience />
       <Nav />
       <main>
         <Hero />

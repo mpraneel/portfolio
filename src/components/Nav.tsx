@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { GitHubIcon, LinkedInIcon, MoonIcon, ResumeIcon, SunIcon } from './Icons'
+import { GitHubIcon, LinkedInIcon, ResumeIcon } from './Icons'
 import './nav.css'
 
 const LINKS = [
@@ -10,14 +10,7 @@ const LINKS = [
   { label: 'Contact', href: '#contact' },
 ]
 
-type Theme = 'dark' | 'light'
-
-function currentTheme(): Theme {
-  return document.documentElement.getAttribute('data-theme') === 'light' ? 'light' : 'dark'
-}
-
 export default function Nav() {
-  const [theme, setTheme] = useState<Theme>(currentTheme)
   const [open, setOpen] = useState(false)
   const progressRef = useRef<HTMLDivElement>(null)
 
@@ -41,15 +34,6 @@ export default function Nav() {
       cancelAnimationFrame(raf)
     }
   }, [])
-
-  useEffect(() => {
-    document.documentElement.setAttribute('data-theme', theme)
-    try {
-      localStorage.setItem('theme', theme)
-    } catch {
-      /* private mode, fine to skip persistence */
-    }
-  }, [theme])
 
   // Close the mobile menu when a link is chosen or on escape
   useEffect(() => {
@@ -108,13 +92,6 @@ export default function Nav() {
           >
             <ResumeIcon />
           </a>
-          <button
-            className="nav__icon nav__theme"
-            onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-            aria-label={theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme'}
-          >
-            {theme === 'dark' ? <SunIcon /> : <MoonIcon />}
-          </button>
           <button
             className="nav__burger"
             onClick={() => setOpen(!open)}

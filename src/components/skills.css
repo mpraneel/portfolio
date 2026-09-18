@@ -68,7 +68,3 @@
   border-color: rgba(255, 161, 78, 0.3);
   background: linear-gradient(180deg, var(--bg-3), var(--bg-2));
 }
-
-:root[data-theme='light'] .skills__chip--primary {
-  border-color: rgba(209, 106, 30, 0.35);
-}

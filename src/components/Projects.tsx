@@ -1,5 +1,4 @@
 import ProjectCard, { type Project } from './ProjectCard'
-import { useReveal } from '../useReveal'
 import './projects.css'
 
 const PROJECTS: Project[] = [
@@ -12,7 +11,15 @@ const PROJECTS: Project[] = [
     featured: true,
     media: 'heatmap',
     span: 'wide',
-    revealVariant: 'reveal--zoom',
+  },
+  {
+    title: 'arm-kinematics',
+    blurb:
+      'Designed and built a planar robot arm simulator with a runtime safety supervisor that validates every command from a deliberately faulty controller before the arm acts on it, checking reachability, joint limits, velocity, singularities, and swept-path collision, then falling back to hold, clamp, or an RRT detour. Benchmarked on 2,000 seeded commands at a 50 Hz loop: joint limit, velocity, and collision violations drop from 176, 423, and 418 to zero, at a median supervisor latency of 4.6 microseconds and a 41.5% intervention rate. The benchmark also reports the costs, including blocked commands, reduced target reach, and tail latency, from a scene redesigned so a fault-free run produces zero violations.',
+    tech: ['C++17', 'CMake', 'Eigen', 'SFML', 'Catch2'],
+    repos: [{ label: 'arm-kinematics', url: 'https://github.com/mpraneel/arm-kinematics' }],
+    media: 'arm',
+    span: 'narrow',
   },
   {
     title: 'Mendacia',
@@ -23,7 +30,6 @@ const PROJECTS: Project[] = [
     media: 'forensics',
     note: 'HackNCState 2026',
     span: 'narrow',
-    revealVariant: 'reveal--right',
   },
   {
     title: 'Hiring Agent',
@@ -33,7 +39,6 @@ const PROJECTS: Project[] = [
     repos: [{ label: 'hiring-agent', url: 'https://github.com/mpraneel/hiring-agent' }],
     media: 'pipeline',
     span: 'wide',
-    revealVariant: 'reveal--left',
   },
   {
     title: 'C++ Geometry and Planning',
@@ -46,22 +51,18 @@ const PROJECTS: Project[] = [
     ],
     media: 'geometry',
     span: 'narrow',
-    revealVariant: 'reveal--right',
   },
 ]
 
 export default function Projects() {
-  const ref = useReveal<HTMLElement>()
   return (
-    <section className="projects" id="projects" ref={ref}>
+    <section className="projects" id="projects">
       <div className="container">
-        <p className="mono-label reveal">02 &middot; Selected work</p>
-        <h2 className="projects__heading reveal" style={{ '--reveal-delay': '0.1s' } as React.CSSProperties}>
-          Projects
-        </h2>
+        <p className="mono-label">02 &middot; Selected work</p>
+        <h2 className="projects__heading">Projects</h2>
         <div className="projects__grid">
-          {PROJECTS.map((p, i) => (
-            <ProjectCard key={p.title} project={p} delay={0.12 + (i % 2) * 0.12} />
+          {PROJECTS.map((p) => (
+            <ProjectCard key={p.title} project={p} />
           ))}
         </div>
       </div>

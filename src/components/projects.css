@@ -79,171 +79,169 @@
   overflow: hidden;
 }
 
+.card__media svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
 .card--featured .card__media {
   height: 260px;
 }
 
-/* Featured media: a slow deviation-heatmap texture, a nod to
-   per-point deviation maps in the alignment engine */
+/* Mesh Alignment Engine media: a warped wireframe surface with a
+   per-vertex deviation heatmap, echoing coarse-to-fine ICP registration */
 .card__heatmap {
   position: absolute;
   inset: 0;
   background: radial-gradient(ellipse 120% 100% at 50% 120%, #241318, #160f14 60%, #120d11);
 }
 
-:root[data-theme='light'] .card__heatmap {
-  background: radial-gradient(ellipse 120% 100% at 50% 120%, #fbe9d8, #f8f1e6 60%, #f5efe6);
+.card__heatmap-edges line {
+  stroke: rgba(244, 237, 229, 0.22);
+  stroke-width: 1.1;
 }
 
-.card__heatmap-layer {
-  position: absolute;
-  inset: -30%;
-  background:
-    radial-gradient(ellipse 30% 40% at 30% 60%, rgba(255, 107, 94, 0.5), transparent 70%),
-    radial-gradient(ellipse 35% 30% at 70% 40%, rgba(255, 179, 92, 0.45), transparent 70%),
-    radial-gradient(ellipse 25% 35% at 55% 75%, rgba(255, 138, 94, 0.3), transparent 70%),
-    radial-gradient(ellipse 20% 25% at 42% 30%, rgba(94, 158, 255, 0.18), transparent 70%);
-  filter: blur(18px);
-  animation: heatmap-drift 14s ease-in-out infinite alternate;
+.card__heatmap-lo circle {
+  fill: rgba(244, 237, 229, 0.45);
 }
 
-.card__heatmap-grid {
-  position: absolute;
-  inset: 0;
-  background-image:
-    radial-gradient(rgba(244, 237, 229, 0.16) 1px, transparent 1.4px);
-  background-size: 14px 14px;
-  mask-image: radial-gradient(ellipse 90% 90% at 50% 55%, black 30%, transparent 80%);
+.card__heatmap-mid circle {
+  fill: rgba(255, 179, 92, 0.75);
 }
 
-:root[data-theme='light'] .card__heatmap-grid {
-  background-image: radial-gradient(rgba(36, 27, 22, 0.2) 1px, transparent 1.4px);
+.card__heatmap-hi circle {
+  fill: rgba(255, 107, 94, 0.85);
+  filter: drop-shadow(0 0 4px rgba(255, 107, 94, 0.5));
 }
 
-@keyframes heatmap-drift {
-  from {
-    transform: translate3d(-3%, -2%, 0) scale(1);
-  }
-  to {
-    transform: translate3d(3%, 3%, 0) scale(1.08);
-  }
+/* Mendacia media: video and narrative claims cross-checked, producing
+   a structured report with one flagged inconsistency */
+.card__forensics-video rect,
+.card__forensics-claim rect {
+  fill: none;
+  stroke: rgba(244, 237, 229, 0.35);
+  stroke-width: 1.4;
 }
 
-/* Mendacia media: layered video-forensics texture with a slow scan */
-.card__forensics {
-  position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(160deg, rgba(255, 138, 94, 0.14), transparent 45%),
-    repeating-linear-gradient(
-      0deg,
-      transparent 0px,
-      transparent 3px,
-      rgba(244, 237, 229, 0.025) 3px,
-      rgba(244, 237, 229, 0.025) 4px
-    ),
-    radial-gradient(ellipse 100% 90% at 80% 10%, #201623, #140f15 65%);
+.card__forensics-video path {
+  fill: rgba(244, 237, 229, 0.35);
 }
 
-:root[data-theme='light'] .card__forensics {
-  background:
-    linear-gradient(160deg, rgba(224, 90, 53, 0.12), transparent 45%),
-    repeating-linear-gradient(
-      0deg,
-      transparent 0px,
-      transparent 3px,
-      rgba(36, 27, 22, 0.03) 3px,
-      rgba(36, 27, 22, 0.03) 4px
-    ),
-    radial-gradient(ellipse 100% 90% at 80% 10%, #f3e6da, #f7f1e8 65%);
+.card__forensics-claim line {
+  stroke: rgba(244, 237, 229, 0.3);
+  stroke-width: 1.4;
 }
 
-.card__scanline {
-  position: absolute;
-  left: 0;
-  right: 0;
-  height: 34%;
-  background: linear-gradient(
-    180deg,
-    transparent,
-    rgba(255, 138, 94, 0.09) 50%,
-    rgba(255, 138, 94, 0.16) 52%,
-    transparent 53%
-  );
-  animation: scan 7s var(--ease-swift) infinite;
+.card__forensics-claim-flag {
+  stroke: rgba(255, 107, 94, 0.7);
+  stroke-dasharray: 3 3;
 }
 
-@keyframes scan {
-  0% {
-    top: -35%;
-  }
-  60% {
-    top: 100%;
-  }
-  100% {
-    top: 100%;
-  }
+.card__forensics-link {
+  fill: none;
+  stroke: rgba(255, 179, 92, 0.45);
+  stroke-width: 1.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
-/* Hiring Agent media: pipeline lanes with a slow flowing dash */
+.card__forensics-compare-ring {
+  fill: none;
+  stroke: rgba(255, 138, 94, 0.5);
+  stroke-width: 1.6;
+}
+
+.card__forensics-compare circle:not(.card__forensics-compare-ring) {
+  fill: none;
+  stroke: rgba(244, 237, 229, 0.55);
+  stroke-width: 1.4;
+}
+
+.card__forensics-report path:first-child {
+  fill: rgba(255, 138, 94, 0.05);
+  stroke: rgba(244, 237, 229, 0.4);
+  stroke-width: 1.4;
+  stroke-linejoin: round;
+}
+
+.card__forensics-report path:last-child {
+  fill: none;
+  stroke: rgba(244, 237, 229, 0.4);
+  stroke-width: 1.4;
+  stroke-linejoin: round;
+}
+
+.card__forensics-report line {
+  stroke: rgba(244, 237, 229, 0.3);
+  stroke-width: 1.4;
+}
+
+.card__forensics-report-flag {
+  stroke: rgba(255, 107, 94, 0.8);
+  stroke-width: 1.8;
+  stroke-dasharray: 4 3;
+}
+
+.card__forensics-flag-mark {
+  fill: none;
+  stroke: rgba(255, 107, 94, 0.8);
+  stroke-width: 2.4;
+  stroke-linecap: round;
+}
+
+/* Hiring Agent media: resume in, scored, matched */
 .card__pipeline {
   position: absolute;
   inset: 0;
-  background:
-    linear-gradient(200deg, rgba(255, 179, 92, 0.1), transparent 50%),
-    radial-gradient(ellipse 110% 100% at 20% 110%, #1d1520, #130e13 65%);
+  background: radial-gradient(ellipse 110% 100% at 20% 110%, #1d1520, #130e13 65%);
 }
 
-:root[data-theme='light'] .card__pipeline {
-  background:
-    linear-gradient(200deg, rgba(232, 135, 58, 0.12), transparent 50%),
-    radial-gradient(ellipse 110% 100% at 20% 110%, #f6e9db, #f8f2e9 65%);
+.card__pipeline-doc rect {
+  fill: none;
+  stroke: rgba(244, 237, 229, 0.4);
+  stroke-width: 1.6;
 }
 
-.card__pipeline-flow {
-  position: absolute;
-  inset: 0;
-  background: repeating-linear-gradient(
-    115deg,
-    transparent 0 26px,
-    rgba(255, 138, 94, 0.14) 26px 30px,
-    transparent 30px 72px,
-    rgba(255, 179, 92, 0.08) 72px 76px
-  );
-  background-size: 220% 100%;
-  animation: pipeline-flow 16s linear infinite;
+.card__pipeline-doc line {
+  stroke: rgba(244, 237, 229, 0.3);
+  stroke-width: 1.6;
 }
 
-:root[data-theme='light'] .card__pipeline-flow {
-  background: repeating-linear-gradient(
-    115deg,
-    transparent 0 26px,
-    rgba(224, 90, 53, 0.14) 26px 30px,
-    transparent 30px 72px,
-    rgba(209, 106, 30, 0.09) 72px 76px
-  );
-  background-size: 220% 100%;
+.card__pipeline-arrow {
+  fill: none;
+  stroke: rgba(255, 179, 92, 0.5);
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
-@keyframes pipeline-flow {
-  from {
-    background-position: 0 0;
-  }
-  to {
-    background-position: -400px 0;
-  }
+.card__pipeline-node {
+  fill: none;
+  stroke: rgba(255, 138, 94, 0.55);
+  stroke-width: 2;
 }
 
-.card__pipeline-nodes {
-  position: absolute;
-  inset: 0;
-  background-image: radial-gradient(rgba(244, 237, 229, 0.2) 1.2px, transparent 1.6px);
-  background-size: 26px 26px;
-  mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 25%, transparent 78%);
+.card__pipeline-node-inner {
+  fill: rgba(255, 138, 94, 0.15);
+  stroke: rgba(255, 138, 94, 0.4);
+  stroke-width: 1.6;
 }
 
-:root[data-theme='light'] .card__pipeline-nodes {
-  background-image: radial-gradient(rgba(36, 27, 22, 0.22) 1.2px, transparent 1.6px);
+.card__pipeline-badge rect {
+  fill: none;
+  stroke: rgba(255, 179, 92, 0.55);
+  stroke-width: 2;
+}
+
+.card__pipeline-badge path {
+  fill: none;
+  stroke: rgba(255, 179, 92, 0.75);
+  stroke-width: 2.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
 /* C++ card media: convex hull and an RRT-style tree over a point set */
@@ -251,17 +249,6 @@
   position: absolute;
   inset: 0;
   background: radial-gradient(ellipse 110% 100% at 70% -10%, #1c1420, #130e13 70%);
-}
-
-:root[data-theme='light'] .card__geometry {
-  background: radial-gradient(ellipse 110% 100% at 70% -10%, #f4e8dc, #f8f2e9 70%);
-}
-
-.card__geometry svg {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
 }
 
 .card__geometry-hull polygon {
@@ -282,17 +269,50 @@
   fill: rgba(244, 237, 229, 0.55);
 }
 
-:root[data-theme='light'] .card__geometry-hull polygon {
-  fill: rgba(224, 90, 53, 0.08);
-  stroke: rgba(224, 90, 53, 0.6);
+.card__arm-reach {
+  fill: none;
+  stroke: rgba(255, 179, 92, 0.14);
+  stroke-width: 1;
+  stroke-dasharray: 2 5;
 }
 
-:root[data-theme='light'] .card__geometry-tree path {
-  stroke: rgba(209, 106, 30, 0.45);
+.card__arm-link {
+  stroke: rgba(255, 138, 94, 0.55);
+  stroke-width: 3;
+  stroke-linecap: round;
 }
 
-:root[data-theme='light'] .card__geometry-points circle {
-  fill: rgba(36, 27, 22, 0.5);
+.card__arm-joints circle {
+  fill: rgba(244, 237, 229, 0.6);
+}
+
+.card__arm-safe-joint {
+  fill: rgba(255, 179, 92, 0.9);
+  filter: drop-shadow(0 0 5px rgba(255, 179, 92, 0.55));
+}
+
+.card__arm-ghost line {
+  stroke: rgba(255, 107, 94, 0.38);
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-dasharray: 1 5;
+}
+
+.card__arm-ghost-joint {
+  fill: rgba(255, 107, 94, 0.5);
+}
+
+.card__arm-blocked-mark line {
+  stroke: rgba(255, 107, 94, 0.6);
+  stroke-width: 1.6;
+  stroke-linecap: round;
+}
+
+.card__arm-detour {
+  fill: none;
+  stroke: rgba(255, 179, 92, 0.6);
+  stroke-width: 1.6;
+  stroke-dasharray: 3 3;
 }
 
 .card__repos {

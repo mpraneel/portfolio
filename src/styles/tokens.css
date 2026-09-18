@@ -1,10 +1,9 @@
 /*
-  Design tokens. Dark is the default theme.
-  Warm charcoal base, amber-to-coral accent, layered elevation.
+  Design tokens. One theme: warm charcoal base, amber-to-coral
+  accent, layered elevation.
 */
 
-:root,
-:root[data-theme='dark'] {
+:root {
   /* Surfaces, deep with a warm undertone rather than flat gray */
   --bg-0: #0f0b0d;
   --bg-1: #171114;
@@ -52,53 +51,7 @@
   --nav-bg: rgba(15, 11, 13, 0.72);
 
   color-scheme: dark;
-}
 
-:root[data-theme='light'] {
-  --bg-0: #faf5ee;
-  --bg-1: #ffffff;
-  --bg-2: #fdf9f3;
-  --bg-3: #f4ece1;
-
-  --text-1: #241b16;
-  --text-2: #6d5f55;
-  --text-3: #99897d;
-
-  --accent-1: #e8873a;
-  --accent-2: #e04f42;
-  --accent-solid: #d16a1e;
-  --accent-ink: #ffffff;
-  --accent-grad: linear-gradient(120deg, var(--accent-1), var(--accent-2));
-
-  --edge: rgba(36, 27, 22, 0.09);
-  --edge-strong: rgba(36, 27, 22, 0.16);
-  --edge-lit: rgba(209, 106, 30, 0.4);
-
-  --shadow-1:
-    0 1px 2px rgba(60, 40, 20, 0.08),
-    0 4px 12px rgba(60, 40, 20, 0.08);
-  --shadow-2:
-    0 2px 4px rgba(60, 40, 20, 0.08),
-    0 12px 32px rgba(60, 40, 20, 0.12);
-  --shadow-3:
-    0 4px 8px rgba(60, 40, 20, 0.1),
-    0 24px 64px rgba(60, 40, 20, 0.16);
-  --top-light: inset 0 1px 0 rgba(255, 255, 255, 0.9);
-
-  --pt-ref: rgba(109, 95, 85, 0.45);
-  --pt-src: #e05a35;
-  --pt-locked: #d16a1e;
-  --pt-line: rgba(224, 90, 53, 0.3);
-  --pt-ambient: rgba(90, 75, 65, 0.5);
-  --pt-link: rgba(90, 75, 65, 0.14);
-  --pt-far: #d43d52;
-
-  --nav-bg: rgba(250, 245, 238, 0.78);
-
-  color-scheme: light;
-}
-
-:root {
   /* Type */
   --font-display: 'Clash Display', 'Inter', system-ui, sans-serif;
   --font-body: 'Inter', system-ui, -apple-system, sans-serif;

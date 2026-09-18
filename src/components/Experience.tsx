@@ -1,4 +1,3 @@
-import { useReveal } from '../useReveal'
 import './experience.css'
 
 interface Role {
@@ -9,6 +8,16 @@ interface Role {
 }
 
 const ROLES: Role[] = [
+  {
+    org: 'GAEC Lab at NC State',
+    title: 'Undergraduate Research Assistant',
+    dates: 'Aug 2026 to May 2027',
+    points: [
+      'Selected for I-GROUP, a competitive, funded, year-long undergraduate research appointment (about 120 applicants), advised by Dr. Mirela Tulbure at the Center for Geospatial Analytics.',
+      'Integrating five published benchmark datasets (KuroSiwo, ETCI2021, SEN12-FLOOD, MMFlood, S1S2-Water) into a harmonized multi-sensor training pipeline for FloodAtlas, the lab’s global ML flood segmentation model, reconciling conflicting coordinate reference systems, resolutions, tiling schemes, SAR polarizations, and label taxonomies across datasets built by different research groups.',
+      'Running large-scale processing of hundreds of gigabytes of Sentinel-1 SAR and Sentinel-2 imagery on NC State’s HPC cluster and research storage.',
+    ],
+  },
   {
     org: 'Align Technology',
     title: 'Software Engineering Intern, R&D',
@@ -48,24 +57,17 @@ const ROLES: Role[] = [
 ]
 
 export default function Experience() {
-  const ref = useReveal<HTMLElement>()
   return (
-    <section className="experience" id="experience" ref={ref}>
+    <section className="experience" id="experience">
       <div className="container">
-        <p className="mono-label reveal">03 &middot; Where I have worked</p>
-        <h2 className="experience__heading reveal" style={{ '--reveal-delay': '0.1s' } as React.CSSProperties}>
-          Experience
-        </h2>
+        <p className="mono-label">03 &middot; Where I have worked</p>
+        <h2 className="experience__heading">Experience</h2>
 
         <ol className="timeline">
-          {ROLES.map((r, i) => (
-            <li
-              key={r.org}
-              className="timeline__item reveal reveal--left"
-              style={{ '--reveal-delay': `${0.1 + i * 0.08}s` } as React.CSSProperties}
-            >
+          {ROLES.map((r) => (
+            <li key={r.org} className="timeline__item">
               <span className="timeline__dot" aria-hidden="true" />
-              <div className="timeline__card spot">
+              <div className="timeline__card">
                 <div className="timeline__head">
                   <h3 className="timeline__org">{r.org}</h3>
                   {r.dates && <span className="timeline__dates mono-label">{r.dates}</span>}

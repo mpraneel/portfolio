@@ -1,12 +1,10 @@
 import { useEffect, useRef } from 'react'
 import { startHero } from '../hero/render'
-import { useReveal } from '../useReveal'
 import { ResumeIcon } from './Icons'
 import './hero.css'
 
 export default function Hero() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
-  const sectionRef = useReveal<HTMLElement>()
 
   useEffect(() => {
     const canvas = canvasRef.current
@@ -15,23 +13,19 @@ export default function Hero() {
   }, [])
 
   return (
-    <section className="hero" id="top" ref={sectionRef} data-hero-tilt>
+    <section className="hero" id="top" data-hero-tilt>
       <canvas ref={canvasRef} className="hero__bg" aria-hidden="true" />
 
       <div className="hero__inner container">
         <div className="hero__copy">
-          <p className="mono-label reveal" style={{ '--reveal-delay': '0.05s' } as React.CSSProperties}>
-            Software Engineer
-          </p>
-          <h1 className="hero__headline grad-text reveal" style={{ '--reveal-delay': '0.15s' } as React.CSSProperties}>
+          <p className="mono-label">Software Engineer</p>
+          <h1 className="hero__headline accent-text">
             Praneel
             <br />
             Magapu
           </h1>
-          <p className="hero__tagline reveal" style={{ '--reveal-delay': '0.24s' } as React.CSSProperties}>
-            Building software across systems and intelligence.
-          </p>
-          <div className="hero__cta reveal" style={{ '--reveal-delay': '0.4s' } as React.CSSProperties}>
+          <p className="hero__tagline">Building software across systems and intelligence.</p>
+          <div className="hero__cta">
             <a className="btn btn--primary" href="#projects">
               View projects
             </a>
@@ -40,9 +34,7 @@ export default function Hero() {
               Resume
             </a>
           </div>
-          <p className="hero__stack mono-label reveal" style={{ '--reveal-delay': '0.5s' } as React.CSSProperties}>
-            C++ / Python / Java / AI &amp; ML
-          </p>
+          <p className="hero__stack mono-label">C++ / Python / Java / AI &amp; ML</p>
         </div>
       </div>
 

@@ -96,8 +96,8 @@ export function startHero(canvas: HTMLCanvasElement): () => void {
   if (!ctx) return () => undefined
 
   const sim = new IcpSim()
-  let colors = readColors()
-  let ramp = buildRamp(colors.src, colors.far)
+  const colors = readColors()
+  const ramp = buildRamp(colors.src, colors.far)
   const heatIdx: number[] = new Array(sim.source.length).fill(0)
 
   let width = 0
@@ -474,17 +474,6 @@ export function startHero(canvas: HTMLCanvasElement): () => void {
 
   const onMotionChange = (): void => applyMotionPreference()
 
-  // Repaint with fresh colors when the theme flips
-  const themeObserver = new MutationObserver(() => {
-    colors = readColors()
-    ramp = buildRamp(colors.src, colors.far)
-    if (!running) draw()
-  })
-  themeObserver.observe(document.documentElement, {
-    attributes: true,
-    attributeFilter: ['data-theme'],
-  })
-
   const resizeObserver = new ResizeObserver(() => {
     resize()
     if (!running) draw()
@@ -506,7 +495,6 @@ export function startHero(canvas: HTMLCanvasElement): () => void {
 
   return () => {
     stop()
-    themeObserver.disconnect()
     resizeObserver.disconnect()
     tiltTarget.removeEventListener('pointerdown', onPointerDown as EventListener)
     tiltTarget.removeEventListener('pointermove', onPointerMove as EventListener)

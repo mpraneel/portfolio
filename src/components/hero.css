@@ -64,21 +64,9 @@
   text-wrap: balance;
 }
 
-/* The gradient name carries the page: soft warm glow plus a slow
-   shimmer as the gradient pans across the letters */
-.hero__headline.grad-text {
+/* The name in solid accent, with a quiet warm glow for depth */
+.hero__headline.accent-text {
   filter: drop-shadow(0 4px 28px rgba(255, 122, 84, 0.22));
-  background-size: 220% 100%;
-  animation: name-shimmer 7s var(--ease-swift) infinite alternate;
-}
-
-@keyframes name-shimmer {
-  from {
-    background-position: 0% 0;
-  }
-  to {
-    background-position: 100% 0;
-  }
 }
 
 .hero__tagline {

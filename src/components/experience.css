@@ -77,6 +77,8 @@
 .timeline__org {
   font-size: var(--step-1);
   font-weight: 600;
+  letter-spacing: 0;
+  word-spacing: 0.2em;
 }
 
 .timeline__title {

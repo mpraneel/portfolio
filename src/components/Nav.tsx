@@ -84,7 +84,7 @@ export default function Nav() {
           </a>
           <a
             className="nav__icon"
-            href="/resume.pdf"
+            href="/Praneel_Magapu_Resume.pdf"
             target="_blank"
             rel="noreferrer"
             aria-label="Resume PDF"

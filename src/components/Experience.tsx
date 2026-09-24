@@ -9,31 +9,43 @@ interface Role {
 
 const ROLES: Role[] = [
   {
-    org: 'GAEC Lab at NC State',
+    org: 'GAEC Lab, NC State Center for Geospatial Analytics',
     title: 'Undergraduate Research Assistant',
     dates: 'Aug 2026 to May 2027',
     points: [
-      'Selected for I-GROUP, a competitive, funded, year-long undergraduate research appointment (about 120 applicants), advised by Dr. Mirela Tulbure at the Center for Geospatial Analytics.',
-      'Integrating five published benchmark datasets (KuroSiwo, ETCI2021, SEN12-FLOOD, MMFlood, S1S2-Water) into a harmonized multi-sensor training pipeline for FloodAtlas, the lab’s global ML flood segmentation model, reconciling conflicting coordinate reference systems, resolutions, tiling schemes, SAR polarizations, and label taxonomies across datasets built by different research groups.',
-      'Running large-scale processing of hundreds of gigabytes of Sentinel-1 SAR and Sentinel-2 imagery on NC State’s HPC cluster and research storage.',
+      'Selected for I-GROUP, a competitive, funded, year-long undergraduate research appointment (about 120 applicants), advised by Dr. Mirela Tulbure.',
+      'Integrating five published flood benchmarks (KuroSiwo, ETCI2021, SEN12-FLOOD, MMFlood, S1S2-Water) into a harmonized multi-sensor training pipeline for FloodAtlas, reconciling conflicting projections, resolutions, SAR polarizations, and label taxonomies.',
+      "Process hundreds of gigabytes of Sentinel-1 SAR and Sentinel-2 imagery on NC State's HPC cluster.",
     ],
   },
   {
-    org: 'Align Technology',
+    org: 'Align Technology (Invisalign)',
     title: 'Software Engineering Intern, R&D',
     dates: 'May 2026 to Aug 2026',
     points: [
-      'Redesigned support-structure generation in a large C++ 3D-printing pipeline, replacing a manual finishing step and improving part quality.',
-      'Engineered support geometry and implemented pixel-level processing to optimize how supports separate from the final part.',
+      'Redesigned support-structure generation in a large production C++ pipeline for 3D-printed medical devices, improving surface quality and reducing manual finishing.',
+      'Implemented mesh-processing algorithms that derive support placement from part geometry, generalizing across device shapes without per-case tuning.',
+      'Applied OpenCV processing to rasterized geometry to tune how supports detach from the finished part.',
     ],
   },
   {
-    org: 'NC State',
+    org: 'Game2Learn Lab, NC State',
     title: 'Research Assistant',
-    dates: 'May 2024 to Dec 2025',
+    dates: 'Summer 2024',
     points: [
-      'Game2Learn Lab: full-stack work on a production RAG system for an educational assistant.',
-      'Crowd Label Quality Control: interval-analysis algorithms for detecting unreliable crowd labels at scale.',
+      "Built the retrieval pipeline for MerryQuery, an AI teaching assistant that answers student questions from a course's actual materials rather than a model's general knowledge.",
+      'Drove full-stack integration across retrieval, model interface, and student-facing app, taking it from prototype to a live classroom pilot.',
+      'Iterated the design against feedback from real students in the pilot. Completed as an independent study under Dr. Tiffany Barnes.',
+    ],
+  },
+  {
+    org: 'Crowd Label Quality Control, NC State',
+    title: 'Research Assistant',
+    dates: 'Fall 2025',
+    points: [
+      'Designed a modular quality-control framework for crowdsourced ML training labels, modeling taggers, prompts, and tag assignments as distinct domain objects.',
+      "Implemented reliability metrics including tagging-speed analysis, Krippendorff's alpha for inter-rater agreement, and repeated-pattern detection.",
+      'Flagged low-quality annotators from behavioral and agreement signals, filtering unreliable data before it reaches a training set. Advised by Dr. Edward Gehringer.',
     ],
   },
   {
@@ -41,17 +53,19 @@ const ROLES: Role[] = [
     title: 'Software Engineering Intern',
     dates: 'May 2025 to Aug 2025',
     points: [
-      'Hybrid regex plus LLM email-classification backend behind a Flask API: regex-first classification with LLM fallback and thread-level timeline tracking.',
-      'Migrated storage from in-memory to Supabase and deployed on AWS Elastic Beanstalk.',
+      'Built a two-stage email classifier for InboxFlow: regex on the fast path, with only low-confidence messages escalated to a Gemini LLM to hold down cost and latency.',
+      'Mapped structured LLM output into the existing label schema, and tracked order, return, and refund state across email threads arriving days apart.',
+      'Migrated persistence from memory to Supabase (PostgreSQL) and deployed the Flask service to AWS Elastic Beanstalk as a stable endpoint for a Gmail Add-on.',
     ],
   },
   {
-    org: 'Liquid Rocketry Lab at NC State',
+    org: 'Liquid Rocketry Lab, NC State',
     title: 'Data Engineer',
     dates: 'Sep 2024 to May 2025',
     points: [
-      'Real-time telemetry pipeline for live rocket engine tests using Python, MongoDB, and containerized microservices.',
-      'Sub-second abort and breach event capture with an observable fault-detection pattern.',
+      'Built the real-time telemetry pipeline for live rocket engine hot fire tests, using Python for processing and MongoDB for storage across containerized microservices.',
+      'Captured abort and breach events at sub-second latency in a safety-critical environment where a missed abort has physical consequences.',
+      'Decoupled fault detection from ingestion, so new abort conditions ship by subscribing a detector rather than editing the pipeline.',
     ],
   },
 ]

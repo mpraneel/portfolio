@@ -29,7 +29,7 @@ export default function Hero() {
             <a className="btn btn--primary" href="#projects">
               View projects
             </a>
-            <a className="btn btn--ghost" href="/resume.pdf" target="_blank" rel="noreferrer">
+            <a className="btn btn--ghost" href="/Praneel_Magapu_Resume.pdf" target="_blank" rel="noreferrer">
               <ResumeIcon size={16} />
               Resume
             </a>

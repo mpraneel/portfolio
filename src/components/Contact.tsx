@@ -38,7 +38,7 @@ export default function Contact() {
             </a>
             <a
               className="contact__icon"
-              href="/resume.pdf"
+              href="/Praneel_Magapu_Resume.pdf"
               target="_blank"
               rel="noreferrer"
               aria-label="Resume PDF"
